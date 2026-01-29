@@ -1,0 +1,276 @@
+/* =========================================
+   1. RESET & GLOBAL STYLES
+   (Mengatur dasar tampilan agar konsisten)
+   ========================================= */
+
+/* Tanda bintang (*) artinya memilih SEMUA elemen */
+* {
+    margin: 0;              /* Menghapus jarak luar bawaan browser */
+    padding: 0;             /* Menghapus jarak dalam bawaan browser */
+    box-sizing: border-box; /* Memastikan padding tidak memperbesar ukuran elemen */
+    text-decoration: none;  /* Menghilangkan garis bawah pada link */
+    list-style: none;       /* Menghilangkan titik (bullet) pada list */
+    border: none;           /* Menghilangkan garis tepi default */
+    outline: none;          /* Menghilangkan garis fokus saat diklik */
+}
+
+/* Mengatur scroll agar halus saat tombol diklik */
+html {
+    scroll-behavior: smooth; 
+}
+
+/* Pengaturan utama pada body */
+body {
+    font-family: 'Poppins', sans-serif; /* Menggunakan font modern */
+    color: #334155;        /* Warna teks abu-abu gelap (Slate) agar enak dibaca */
+    line-height: 1.6;      /* Jarak antar baris teks agar tidak rapat */
+    background-color: #ffffff; /* Latar belakang utama putih */
+}
+
+/* Kelas Utilitas untuk Warna Latar Belakang */
+.bg-light {
+    background-color: #f0f9ff; /* Biru sangat muda (Alice Blue) untuk selingan */
+}
+
+.bg-white {
+    background-color: #ffffff; /* Putih bersih */
+}
+
+/* =========================================
+   2. NAVIGASI (HEADER)
+   ========================================= */
+
+header {
+    background-color: #ffffff;  /* Latar navigasi putih */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); /* Bayangan halus di bawah */
+    position: fixed;   /* Membuat menu tetap menempel di atas saat discroll */
+    top: 0;
+    left: 0;
+    width: 100%;       /* Lebar penuh */
+    z-index: 1000;     /* Memastikan menu selalu di lapisan paling atas */
+    padding: 1rem 5%;  /* Jarak dalam (Atas-Bawah 1rem, Kiri-Kanan 5%) */
+}
+
+nav {
+    display: flex;     /* Menggunakan Flexbox untuk tata letak */
+    justify-content: space-between; /* Logo di kiri, Menu di kanan */
+    align-items: center; /* Posisi vertikal rata tengah */
+    max-width: 1200px; /* Membatasi lebar maksimal agar rapi di layar lebar */
+    margin: 0 auto;    /* Menengahkan navigasi */
+}
+
+.logo {
+    font-size: 1.5rem; /* Ukuran font logo */
+    font-weight: 700;  /* Menebalkan huruf */
+    color: #1e293b;    /* Warna gelap */
+}
+
+.logo span {
+    color: #2563eb;    /* Warna Biru Utama (Royal Blue) pada kata "Empat" */
+}
+
+.nav-links {
+    display: flex;     /* Membuat menu berjejer ke samping */
+    gap: 2rem;         /* Jarak antar menu */
+}
+
+.nav-links li a {
+    color: #64748b;    /* Warna teks menu abu-abu */
+    font-weight: 500;  /* Ketebalan font sedang */
+    transition: 0.3s;  /* Efek transisi halus saat berubah warna */
+}
+
+.nav-links li a:hover {
+    color: #2563eb;    /* Berubah jadi biru saat mouse diarahkan (hover) */
+}
+
+/* =========================================
+   3. BAGIAN HERO (BERANDA)
+   ========================================= */
+
+.hero-kelompok {
+    height: 100vh;      /* Tinggi memenuhi satu layar penuh */
+    background: linear-gradient(rgba(0, 50, 150, 0.7), rgba(0, 20, 80, 0.9)), 
+                url('img/background.jpg'); /* Gradasi Biru + Gambar (pastikan ada gambar background) */
+    background-size: cover;    /* Gambar menutupi seluruh area */
+    background-position: center; /* Posisi gambar di tengah */
+    display: flex;             /* Flexbox untuk menengahkan konten */
+    align-items: center;       /* Tengah secara vertikal */
+    justify-content: center;   /* Tengah secara horizontal */
+    text-align: center;        /* Teks rata tengah */
+    color: #ffffff;            /* Warna teks putih */
+    padding-top: 80px;         /* Kompensasi karena menu fixed di atas */
+}
+
+.hero-overlay h1 {
+    font-size: 3.5rem;    /* Judul sangat besar */
+    font-weight: 800;     /* Sangat tebal */
+    margin-bottom: 1rem;  /* Jarak bawah */
+    letter-spacing: 2px;  /* Jarak antar huruf */
+}
+
+.hero-overlay p {
+    font-size: 1.2rem;    /* Ukuran paragraf */
+    margin-bottom: 2rem;  /* Jarak bawah */
+    opacity: 0.9;         /* Sedikit transparan */
+}
+
+/* Tombol Biru Keren */
+.btn-cek {
+    display: inline-block;
+    background-color: #2563eb; /* Warna latar biru */
+    color: #ffffff;            /* Warna teks putih */
+    padding: 12px 30px;        /* Ukuran tombol */
+    border-radius: 50px;       /* Membuat tombol berbentuk pil/bulat */
+    font-weight: 600;
+    transition: all 0.3s ease; /* Transisi halus */
+    box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.39); /* Bayangan biru glowing */
+}
+
+.btn-cek:hover {
+    background-color: #1d4ed8; /* Biru lebih gelap saat hover */
+    transform: translateY(-2px); /* Efek tombol naik sedikit */
+}
+
+/* =========================================
+   4. KONTAINER UMUM (Untuk semua section)
+   ========================================= */
+
+.section-container {
+    padding: 80px 5%; /* Jarak atas-bawah luas, kiri-kanan 5% */
+}
+
+.container {
+    max-width: 1200px; /* Membatasi lebar konten agar tidak terlalu lebar */
+    margin: 0 auto;    /* Posisi tengah */
+}
+
+.section-title {
+    text-align: center; /* Judul rata tengah */
+    font-size: 2rem;    /* Ukuran besar */
+    color: #1e293b;     /* Warna gelap */
+    margin-bottom: 3rem;/* Jarak ke konten di bawahnya */
+    position: relative; /* Untuk garis hiasan bawah */
+}
+
+/* Garis hiasan di bawah judul */
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;       /* Panjang garis */
+    height: 4px;       /* Tebal garis */
+    background-color: #2563eb; /* Warna garis biru */
+    margin: 10px auto 0; /* Posisi tengah */
+    border-radius: 2px;
+}
+
+/* =========================================
+   5. ANGGOTA KELOMPOK (GRID SYSTEM)
+   ========================================= */
+
+/* Ini kuncinya agar kartu sejajar rapi dan responsif */
+.kelompok-grid {
+    display: grid; /* Mengaktifkan Grid Layout */
+    /* Rumus sakti: Buat kolom minimal 280px, sisanya bagi rata */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 2rem;     /* Jarak antar kartu */
+}
+
+.kelompok-card {
+    background: #ffffff;   /* Latar kartu putih */
+    border-radius: 12px;   /* Sudut melengkung */
+    overflow: hidden;      /* Memotong gambar yang keluar */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); /* Bayangan halus */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animasi hover */
+    border: 1px solid #e2e8f0; /* Garis tepi tipis */
+    display: flex;         /* Flexbox agar mudah mengatur isi */
+    flex-direction: column; /* Isi kartu disusun ke bawah */
+}
+
+.kelompok-card:hover {
+    transform: translateY(-5px); /* Kartu naik saat di-hover */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); /* Bayangan makin kuat */
+    border-color: #2563eb; /* Border jadi biru saat hover */
+}
+
+.card-img {
+    width: 100%;
+    height: 250px;       /* Tinggi area gambar tetap */
+    background-color: #e2e8f0; /* Placeholder warna abu jika gambar loading */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-img img {
+    width: 100%;         /* Lebar gambar penuh */
+    height: 100%;        /* Tinggi gambar penuh */
+    object-fit: cover;   /* Memastikan gambar proporsional/tidak gepeng */
+}
+
+.card-info {
+    padding: 1.5rem;     /* Jarak dalam teks */
+    text-align: center;  /* Teks rata tengah */
+}
+
+.card-info h3 {
+    font-size: 1.1rem;   /* Ukuran nama */
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+}
+
+.card-info p {
+    color: #64748b;      /* Warna teks absen abu-abu */
+    font-size: 0.9rem;
+}
+
+/* =========================================
+   6. LAPORAN & VIDEO (Konten Tengah)
+   ========================================= */
+
+/* Mengatur wadah PDF dan Video agar tidak terlalu lebar */
+.content-wrapper, .video-wrapper {
+    max-width: 800px;  /* Lebar maksimal 800px */
+    margin: 0 auto;    /* Posisi tengah */
+    background: #fff;  /* Latar putih */
+    padding: 20px;     /* Padding dalam */
+    border-radius: 12px; /* Sudut melengkung */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); /* Bayangan */
+}
+
+/* Membuat iframe (PDF/Video) responsif */
+.pdf-container, .video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Rasio 16:9 (Penting agar responsif!) */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: #000; /* Latar hitam untuk video */
+}
+
+.pdf-container iframe, .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.content-desc, .video-desc {
+    margin-top: 20px;   /* Jarak antara video/pdf dengan teks bawahnya */
+    text-align: center; /* Teks rata tengah */
+}
+
+/* =========================================
+   7. FOOTER
+   ========================================= */
+
+footer {
+    background-color: #1e293b; /* Biru Tua Gelap (Slate Dark) */
+    color: #ffffff;            /* Teks Putih */
+    text-align: center;        /* Rata tengah */
+    padding: 2rem;             /* Padding */
+    margin-top: auto;          /* Mendorong footer ke bawah */
+}
