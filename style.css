@@ -1,45 +1,47 @@
-/* --- Root Variables: Untuk mempermudah pengaturan warna utama di seluruh dokumen --- */
+/* --- Pengaturan Variabel Utama --- */
 :root {
-  --primary-pink: #ff758c;
-  --primary-purple: #764ba2;
-  --bg-gradient: linear-gradient(135deg, #ff758c 0%, #764ba2 100%);
-  --light-bg: #fdf6ff;
-  --dark-text: #333;
+  --primary-pink: #ff758c; /* Warna pink utama */
+  --primary-purple: #764ba2; /* Warna ungu utama */
+  --bg-gradient: linear-gradient(135deg, #ff758c 0%, #764ba2 100%); /* Gradasi untuk background */
+  --text-gradient: linear-gradient(to right, #ff758c, #764ba2); /* Gradasi untuk teks judul */
+  --light-bg: #f8f9fa; /* Warna latar belakang terang */
   --white: #ffffff;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Efek bayangan lembut */
 }
 
-/* --- Reset Dasar: Menghilangkan margin/padding bawaan browser --- */
+/* --- Reset Dasar: Menghapus margin bawaan agar tampilan konsisten --- */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Memastikan padding tidak menambah lebar elemen */
-  font-family: 'Poppins', sans-serif; /* Menggunakan font dari Google Fonts */
+  box-sizing: border-box; /* Ukuran elemen dihitung termasuk padding & border */
+  font-family: 'Poppins', sans-serif; /* Menggunakan font Poppins */
 }
 
 html {
-  scroll-behavior: smooth; /* Membuat efek scroll halus saat navigasi diklik */
+  scroll-behavior: smooth; /* Efek scroll halus saat klik menu navigasi */
 }
 
 body {
   background-color: var(--light-bg);
-  color: var(--dark-text);
-  line-height: 1.6;
+  color: #444;
+  overflow-x: hidden; /* Mencegah konten meluap ke samping */
 }
 
-/* --- Navigasi --- */
+/* --- Navigasi (Sticky Navbar) --- */
 header {
-  background: var(--white);
+  background: rgba(255, 255, 255, 0.95); /* Putih transparan */
+  backdrop-filter: blur(10px); /* Efek kaca buram */
   padding: 15px 5%;
-  position: fixed; /* Navigasi tetap di atas saat scroll */
+  position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 nav {
   display: flex;
-  justify-content: space-between; /* Logo di kiri, menu di kanan */
+  justify-content: space-between; /* Logo kiri, menu kanan */
   align-items: center;
 }
 
@@ -55,7 +57,7 @@ nav {
 
 .nav-links {
   display: flex;
-  list-style: none; /* Menghilangkan tanda titik pada list */
+  list-style: none;
 }
 
 .nav-links li {
@@ -64,113 +66,95 @@ nav {
 
 .nav-links a {
   text-decoration: none;
-  color: var(--dark-text);
-  font-weight: 400;
-  transition: 0.3s; /* Efek transisi saat hover */
+  color: #555;
+  font-weight: 500;
+  transition: 0.3s;
 }
 
 .nav-links a:hover {
-  color: var(--primary-pink);
+  color: var(--primary-pink); /* Warna berubah saat diarahkan mouse */
 }
 
-/* --- Hero Section --- */
+/* --- Hero Section (Beranda) --- */
 .hero-kelompok {
-  height: 100vh; /* Memenuhi tinggi layar */
-  background: var(--bg-gradient); /* Warna gradasi pink-ungu */
+  height: 100vh;
+  background: var(--bg-gradient);
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: var(--white);
-  padding-top: 60px;
+  padding: 0 20px;
 }
 
 .hero-overlay h1 {
-  font-size: 3.5rem;
+  font-size: 4rem;
   margin-bottom: 10px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  font-weight: 600;
+  text-shadow: 2px 4px 10px rgba(0,0,0,0.2);
 }
 
-.hero-buttons {
-  margin-top: 20px;
+/* --- Dekorasi Judul Warna-Warni --- */
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  background: var(--text-gradient); /* Memberikan warna gradasi */
+  -webkit-background-clip: text; /* Memotong background hanya di dalam teks */
+  -webkit-text-fill-color: transparent; /* Membuat warna teks asli transparan agar gradasi terlihat */
+  font-weight: 600;
 }
 
-/* Tombol Custom */
+/* --- Tombol Modern --- */
 .btn-cek {
   display: inline-block;
-  padding: 12px 30px;
-  background-color: var(--white);
+  padding: 12px 35px;
+  background: var(--white);
   color: var(--primary-purple);
   text-decoration: none;
-  border-radius: 50px; /* Membuat tombol lonjong/rounded */
+  border-radius: 50px;
   font-weight: 600;
-  transition: 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: 0.4s;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 .btn-cek:hover {
-  transform: translateY(-3px); /* Tombol sedikit naik saat di-hover */
-  background-color: var(--primary-pink);
+  transform: translateY(-5px); /* Tombol melompat sedikit ke atas */
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  background: var(--primary-pink);
   color: var(--white);
 }
 
-/* --- Struktur Section Umum --- */
+/* --- Grid Anggota Kelompok (Kartu Sejajar) --- */
 .section-container {
-  padding: 80px 10%;
+  padding: 100px 8%;
 }
 
-.bg-light { background-color: #f9f9f9; }
-.bg-white { background-color: #ffffff; }
-
-.section-title {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 50px;
-  position: relative;
-  color: var(--primary-purple);
-}
-
-/* Garis kecil di bawah judul */
-.section-title::after {
-  content: '';
-  width: 60px;
-  height: 4px;
-  background: var(--primary-pink);
-  display: block;
-  margin: 10px auto;
-  border-radius: 2px;
-}
-
-/* --- Card Grid (Anggota Kelompok) --- */
 .kelompok-grid {
   display: grid;
-  /* Membuat 3 kolom otomatis yang responsif */
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  /* Membuat kolom otomatis: minimal 280px per kartu */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
   gap: 30px; /* Jarak antar kartu */
 }
 
 .kelompok-card {
   background: var(--white);
-  border-radius: 15px;
+  border-radius: 20px;
   overflow: hidden;
   text-decoration: none;
   color: inherit;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-  transition: 0.3s;
-  border-bottom: 4px solid transparent;
+  box-shadow: var(--shadow);
+  transition: 0.3s ease-in-out;
 }
 
 .kelompok-card:hover {
-  transform: scale(1.05); /* Sedikit membesar saat hover */
-  border-bottom: 4px solid var(--primary-pink);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transform: scale(1.03); /* Membesar sedikit saat hover */
 }
 
 .card-img img {
   width: 100%;
-  height: 250px;
-  object-fit: cover; /* Agar gambar tidak gepeng */
+  height: 300px;
+  object-fit: cover; /* Agar gambar tidak gepeng (terpotong rapi) */
 }
 
 .card-info {
@@ -179,46 +163,45 @@ nav {
 }
 
 .card-info h3 {
-  color: var(--primary-purple);
   margin-bottom: 5px;
+  color: var(--primary-purple);
 }
 
-/* --- Laporan & Video Container --- */
+.card-info p {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* --- Laporan & Video --- */
 .content-wrapper, .video-wrapper {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
-  text-align: center;
 }
 
-/* Wadah untuk Iframe agar responsif */
 .pdf-container, .video-container {
   width: 100%;
-  height: 450px;
-  border-radius: 15px;
+  height: 500px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  margin-bottom: 20px;
-  border: 2px solid #eee;
+  box-shadow: var(--shadow);
+  background: #000;
 }
 
 .content-desc, .video-desc {
   margin-top: 20px;
-  font-style: italic;
-  color: #666;
+  text-align: center;
 }
 
 /* --- Footer --- */
 footer {
-  background: #222;
-  color: var(--white);
+  background: #333;
+  color: white;
   text-align: center;
-  padding: 30px 0;
+  padding: 40px 0;
   margin-top: 50px;
 }
 
-/* --- Responsif Mobile (Layar HP) --- */
+/* --- Responsivitas Layar Laptop/Tablet --- */
 @media (max-width: 768px) {
-  .hero-overlay h1 { font-size: 2.5rem; }
-  .nav-links { display: none; } /* Sembunyikan menu di HP untuk kesederhanaan */
-  .section-container { padding: 50px 5%; }
-}
+  .hero-overlay h1 {
+    font-size
