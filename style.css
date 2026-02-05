@@ -1,58 +1,61 @@
-/* --- Pengaturan Variabel Utama --- */
+/* --- Pengaturan Variabel Utama (Tema Hello Kitty) --- */
 :root {
-  --primary-pink: #ff758c; /* Warna pink utama */
-  --primary-purple: #764ba2; /* Warna ungu utama */
-  --bg-gradient: linear-gradient(135deg, #ff758c 0%, #764ba2 100%); /* Gradasi untuk background */
-  --text-gradient: linear-gradient(to right, #ff758c, #764ba2); /* Gradasi untuk teks judul */
-  --light-bg: #f8f9fa; /* Warna latar belakang terang */
+  --primary-pink: #ffb7c5;    /* Pink lembut khas Hello Kitty */
+  --dark-pink: #ff4d6d;       /* Pink tua untuk aksen */
+  --hello-yellow: #ffd166;    /* Kuning pita Hello Kitty */
+  --bg-soft: #fff0f3;         /* Latar belakang sangat muda */
   --white: #ffffff;
-  --shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Efek bayangan lembut */
+  --shadow: 0 10px 25px rgba(255, 183, 197, 0.4); /* Bayangan bernuansa pink */
+  --text-color: #5c415d;      /* Warna teks ungu kecokelatan agar tidak kaku */
 }
 
-/* --- Reset Dasar: Menghapus margin bawaan agar tampilan konsisten --- */
+/* --- Reset Dasar --- */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Ukuran elemen dihitung termasuk padding & border */
-  font-family: 'Poppins', sans-serif; /* Menggunakan font Poppins */
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 html {
-  scroll-behavior: smooth; /* Efek scroll halus saat klik menu navigasi */
+  scroll-behavior: smooth;
 }
 
 body {
-  background-color: var(--light-bg);
-  color: #444;
-  overflow-x: hidden; /* Mencegah konten meluap ke samping */
+  background-color: var(--bg-soft);
+  color: var(--text-color);
+  overflow-x: hidden;
+  /* Tambahkan sedikit tekstur halus jika ingin, atau biarkan polos */
 }
 
-/* --- Navigasi (Sticky Navbar) --- */
+/* --- Navigasi (Sticky Navbar Lucu) --- */
 header {
-  background: rgba(255, 255, 255, 0.95); /* Putih transparan */
-  backdrop-filter: blur(10px); /* Efek kaca buram */
-  padding: 15px 5%;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  padding: 10px 5%;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  border-bottom: 3px solid var(--primary-pink); /* Garis bawah pink */
 }
 
 nav {
   display: flex;
-  justify-content: space-between; /* Logo kiri, menu kanan */
+  justify-content: space-between;
   align-items: center;
 }
 
 .logo {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 600;
-  color: var(--primary-purple);
+  color: var(--dark-pink);
+  letter-spacing: 1px;
 }
 
 .logo span {
-  color: var(--primary-pink);
+  color: var(--hello-yellow);
+  text-shadow: 1px 1px 0px var(--dark-pink);
 }
 
 .nav-links {
@@ -66,110 +69,150 @@ nav {
 
 .nav-links a {
   text-decoration: none;
-  color: #555;
-  font-weight: 500;
+  color: var(--text-color);
+  font-weight: 600;
   transition: 0.3s;
+  padding: 5px 10px;
+  border-radius: 15px;
 }
 
 .nav-links a:hover {
-  color: var(--primary-pink); /* Warna berubah saat diarahkan mouse */
+  background: var(--primary-pink);
+  color: white;
 }
 
-/* --- Hero Section (Beranda) --- */
+/* --- Hero Section (Beranda Berawan & Pink) --- */
 .hero-kelompok {
   height: 100vh;
-  background: var(--bg-gradient);
+  background: linear-gradient(135deg, #ffdee9 0%, #b5fffc 100%); /* Gradasi langit pastel */
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: var(--white);
+  color: var(--dark-pink);
   padding: 0 20px;
 }
 
 .hero-overlay h1 {
-  font-size: 4rem;
+  font-size: 4.5rem;
   margin-bottom: 10px;
-  font-weight: 600;
-  text-shadow: 2px 4px 10px rgba(0,0,0,0.2);
+  font-weight: 800;
+  text-shadow: 3px 3px 0px var(--white);
 }
 
-/* --- Dekorasi Judul Warna-Warni --- */
+.hero-overlay p {
+    font-weight: 600;
+    color: #ff758c;
+}
+
+/* --- Dekorasi Judul (Warna Gradasi Soft) --- */
 .section-title {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   margin-bottom: 40px;
-  background: var(--text-gradient); /* Memberikan warna gradasi */
-  -webkit-background-clip: text; /* Memotong background hanya di dalam teks */
-  -webkit-text-fill-color: transparent; /* Membuat warna teks asli transparan agar gradasi terlihat */
-  font-weight: 600;
+  background: linear-gradient(to right, #ff4d6d, #ffb7c5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  position: relative;
 }
 
-/* --- Tombol Modern --- */
+/* Tambahkan aksen kecil di bawah judul */
+.section-title::after {
+    content: '✿';
+    display: block;
+    font-size: 1.2rem;
+    color: var(--dark-pink);
+    -webkit-text-fill-color: var(--dark-pink);
+}
+
+/* --- Tombol "Pita" Hello Kitty --- */
 .btn-cek {
   display: inline-block;
-  padding: 12px 35px;
-  background: var(--white);
-  color: var(--primary-purple);
+  padding: 15px 40px;
+  background: var(--dark-pink);
+  color: var(--white) !important;
   text-decoration: none;
   border-radius: 50px;
   font-weight: 600;
-  transition: 0.4s;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 6px 0px #c9184a; /* Efek tombol timbul 3D */
+  border: 2px solid var(--white);
 }
 
 .btn-cek:hover {
-  transform: translateY(-5px); /* Tombol melompat sedikit ke atas */
-  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-  background: var(--primary-pink);
-  color: var(--white);
+  transform: scale(1.1) rotate(-2deg); /* Goyang sedikit saat hover */
+  background: var(--hello-yellow);
+  color: var(--dark-pink) !important;
+  box-shadow: 0 6px 0px #eec04b;
 }
 
-/* --- Grid Anggota Kelompok (Kartu Sejajar) --- */
-.section-container {
-  padding: 100px 8%;
+.btn-cek:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0px #c9184a;
 }
+
+/* --- Grid Anggota (Kartu seperti Frame Foto) --- */
+.section-container {
+  padding: 80px 8%;
+}
+
+.bg-light { background-color: var(--bg-soft); }
+.bg-white { background-color: var(--white); }
 
 .kelompok-grid {
   display: grid;
-  /* Membuat kolom otomatis: minimal 280px per kartu */
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-  gap: 30px; /* Jarak antar kartu */
+  gap: 35px;
 }
 
 .kelompok-card {
   background: var(--white);
-  border-radius: 20px;
+  border-radius: 30px; /* Lebih bulat agar terlihat 'cute' */
   overflow: hidden;
   text-decoration: none;
   color: inherit;
   box-shadow: var(--shadow);
-  transition: 0.3s ease-in-out;
+  transition: 0.4s;
+  border: 4px solid var(--white);
 }
 
 .kelompok-card:hover {
-  transform: scale(1.03); /* Membesar sedikit saat hover */
+  transform: translateY(-10px);
+  border-color: var(--primary-pink);
 }
 
 .card-img img {
   width: 100%;
-  height: 300px;
-  object-fit: cover; /* Agar gambar tidak gepeng (terpotong rapi) */
+  height: 320px;
+  object-fit: cover;
+  transition: 0.5s;
+}
+
+.kelompok-card:hover .card-img img {
+    transform: scale(1.1);
 }
 
 .card-info {
-  padding: 20px;
+  padding: 25px;
   text-align: center;
+  background: #fff;
 }
 
 .card-info h3 {
   margin-bottom: 5px;
-  color: var(--primary-purple);
+  color: var(--dark-pink);
+  font-size: 1.3rem;
 }
 
 .card-info p {
-  color: #888;
-  font-size: 0.9rem;
+  background: var(--primary-pink);
+  color: white;
+  display: inline-block;
+  padding: 2px 15px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
 }
 
 /* --- Laporan & Video --- */
@@ -181,27 +224,36 @@ nav {
 .pdf-container, .video-container {
   width: 100%;
   height: 500px;
-  border-radius: 20px;
+  border-radius: 30px;
   overflow: hidden;
   box-shadow: var(--shadow);
-  background: #000;
+  border: 8px solid var(--white);
+  background: #fff;
 }
 
 .content-desc, .video-desc {
-  margin-top: 20px;
+  margin-top: 25px;
   text-align: center;
+  font-weight: 500;
 }
 
 /* --- Footer --- */
 footer {
-  background: #333;
+  background: var(--dark-pink);
   color: white;
   text-align: center;
   padding: 40px 0;
   margin-top: 50px;
+  border-top: 5px solid var(--hello-yellow);
 }
 
-/* --- Responsivitas Layar Laptop/Tablet --- */
+/* --- Responsivitas --- */
 @media (max-width: 768px) {
   .hero-overlay h1 {
-    font-size
+    font-size: 2.8rem;
+  }
+  
+  .section-container {
+      padding: 60px 5%;
+  }
+}
